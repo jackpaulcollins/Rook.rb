@@ -16,6 +16,6 @@ class Hand
   end
 
   def pair?
-    h = @cards.map(&:rank).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }.values.any? { |v| v > 1 }
+    @cards.map(&:rank).each_with_object(Hash.new(0)) { |c, h| h[c] += 1 }.values.any? { |v| v > 1 }
   end
 end
