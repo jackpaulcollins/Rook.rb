@@ -6,7 +6,8 @@ class Deck
   ROOK = Card.new("rook", "rook")
   SKIPPABLE_RANKS = %w[1 2 3 4]
 
-  def initialize
+  def initialize(game)
+    @game = game
     @cards = []
     create_deck
     shuffle_deck
@@ -35,8 +36,7 @@ class Deck
   end
 
   def deal(num_cards)
-    cards = @cards.pop(num_cards)
-    Hand.new(cards)
+    @cards.pop(num_cards)
   end
 
   def return_to_deck(cards)

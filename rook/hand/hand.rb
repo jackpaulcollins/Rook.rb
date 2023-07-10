@@ -1,9 +1,9 @@
 class Hand
   attr_reader :hand
-  attr_reader :cards
+  attr_accessor :cards
 
-  def initialize(cards)
-    @cards = cards
+  def initialize(cards: nil)
+    @cards = cards || []
   end
 
   def hand
@@ -13,6 +13,10 @@ class Hand
   def return_to_deck(deck)
     @cards.each { |c| deck.return_to_deck(c) }
     @cards = nil
+  end
+
+  def add_to_hand(cards)
+    @cards << cards
   end
 
   def pair?

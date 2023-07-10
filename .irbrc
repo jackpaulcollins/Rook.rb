@@ -1,8 +1,7 @@
-
-dirs = ['deck', 'hand', 'calculators']
-
-def autoload_files(directory)
-  Dir.glob("./#{directory}/*.rb").each { |file| require file }
+def autoload_files
+  Dir.glob(File.expand_path('rook/**/*.rb', __dir__)).each do |file|
+    require_relative file
+  end
 end
 
-dirs.each { |directory| autoload_files(directory) }
+autoload_files
